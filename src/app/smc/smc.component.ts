@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-SMC',
-  templateUrl: './SMC.component.html',
-  styleUrls: ['./SMC.component.css']
+  templateUrl: './smc.component.html',
+  styleUrls: ['./smc.component.css']
 })
 export class SMCComponent implements OnInit, OnDestroy {
 
