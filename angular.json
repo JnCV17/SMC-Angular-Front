@@ -127,7 +127,8 @@
             ],
             "assets": [
               "src/assets",
-              "src/favicon.ico"
+              "src/favicon.ico",
+              "Web.config"
             ]
           }
         },
