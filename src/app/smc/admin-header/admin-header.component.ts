@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { Outcome } from '../../models/outcome';
 import { Observable } from 'rxjs/Rx';
 import { OutcomeService } from '../../services/outcome.service';
+import { Rol } from '../../models/rol';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -21,7 +23,13 @@ export class AdminHeaderComponent implements OnInit {
 	nameUser : string;
 	foto : string = "https://qualiscare.com/wp-content/uploads/2017/08/default-user.png";
 
-	constructor(private authService: AuthService, private router: Router,private outcomeService:OutcomeService) { }
+  roles1:Observable<Rol[]>;
+  roles2:Rol[];
+    idrol:string;
+
+    rolsString:string;
+
+	constructor(private authService: AuthService, private router: Router,private outcomeService:OutcomeService,private userService:UserService) { }
 
 	ngOnInit() {
 		this.nameUser = localStorage.getItem('name').slice(1, -1);
@@ -53,6 +61,38 @@ this.outcomesTel= this.outcomeService.outcomesByUserAndProgram(idUser,"TEL");
       this.cantidadTel=rols;
       console.log("tamaño tel"+ this.cantidadTel.length);
     });
+
+this.roles1=this.userService.getRolsByUser(idUser);
+    this.roles1.subscribe(rols=>{
+      this.roles2=rols;
+
+ console.log('forrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr');
+    for (var i = this.roles2.length - 1; i >= 0; i--) {
+      this.idrol=this.roles2[i].ROLE_CIP_ID_ROLE;
+      console.log(this.idrol);
+
+    
+        if (this.idrol=='1') {
+          this.rolsString="Outcome Leader";
+
+        console.log('Outcome Leaderrrrrrrrrrrrrrrrr');
+        }
+        
+        if (this.idrol=='2') {
+
+         this.rolsString="Program Director";
+          console.log('Program Director');
+        }
+      
+    
+    }
+
+
+
+      
+    });
+
+
 
 
 

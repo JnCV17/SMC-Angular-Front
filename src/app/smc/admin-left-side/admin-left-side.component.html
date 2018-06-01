@@ -22,7 +22,12 @@
      
       <!-- Optionally, you can add icons to the links -->
       <li routerLinkActive="active"><a routerLink="/smc/home"><i class="fa fa-home"></i> <span>Home</span></a></li>
-      <li routerLinkActive="active"><a routerLink="/smc/assign"><i class="fa fa-link"></i> <span>Assign Outcomes</span></a></li>
+         <div *ngIf="noShow; else elseBlock"></div>
+
+         <ng-template #elseBlock>
+            <li routerLinkActive="active"><a routerLink="/smc/assign"><i class="fa fa-link"></i> <span>Assign Outcomes</span></a></li>
+          </ng-template>
+
       <li routerLinkActive="active"><a routerLink="/smc/create"><i class="fa fa-plus"></i> <span>Create Assessment</span></a></li>
        <li routerLinkActive="active"><a routerLink="/smc/about"><i class="fa fa-info"></i> <span>About</span></a></li>
     </ul>

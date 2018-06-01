@@ -11,6 +11,7 @@ export class AdminLeftSideComponent implements OnInit {
 	nameUser : string;
 	foto : string;
   idUser : any;
+  noShow=true;
 
   constructor() {
     this.idUser = localStorage.getItem('ID_USER')
@@ -23,6 +24,7 @@ export class AdminLeftSideComponent implements OnInit {
     }else{
       if(this.idUser == "5000"){
       this.foto = "https://conf.researchr.org/getProfileImage/norhavillegas/6b2f298e-31de-44b1-bce8-74e0ada75502/small.jpg?1507858768000";
+       this.noShow=false;
        }else{
         this.foto= "https://qualiscare.com/wp-content/uploads/2017/08/default-user.png";
        }
