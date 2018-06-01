@@ -22,7 +22,7 @@ export class CreatePlanComponent implements OnInit {
 
 	programs:Observable<Program[]>;
 	outcomes:Observable<Outcome[]>;
-
+	cantidad: Outcome[];
 	roles1:Observable<Rol[]>;
 	roles2:Rol[];
 
@@ -90,6 +90,11 @@ export class CreatePlanComponent implements OnInit {
 		
 				if (this.idrol=='1') {
 				this.outcomes= this.outcomeService.outcomesByUserAndProgram(this.id_user,newValue);
+
+				this.outcomes.subscribe(rols=>{
+			this.cantidad=rols;
+			console.log("tamaño "+ this.cantidad.length);
+		});
 
 				console.log('Outcome Leaderrrrr');
 				}
