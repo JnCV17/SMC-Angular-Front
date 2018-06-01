@@ -20,7 +20,8 @@
 
 	</form>
 
-<div class="infoPlan"> 
+<div class="infoPlan">
+	<button class="btn light-blue boton" (click)="showAdd()"><i class="fas fa-plus"></i> Add Pi</button>
 		<table class="table table-bordered table-hover table-sm ">
 
 		<thead>
@@ -89,5 +90,40 @@
 		</tbody>
 
 	</table>
+</div>
+
+<div class="infoPlan" *ngIf="newChecked">
+  <div class="padre" style="margin-left: auto; margin-right: auto; width: 40em" *ngIf="newChecked">
+    <h3 class="text-center h3">
+      Add PI to Plan
+    </h3>
+
+      <form>
+
+      <label>Assign a PI Code: </label>
+	      <div class="input-group mb-3" style="left: 200px;">
+	        <div class="input-group-prepend">
+	          <label class="input-group-text" for="picode">PI Code</label>
+	        </div>
+	        <input type="text" class="form-control" id="picode" name="picode" placeholder="PI Code" required="" [(ngModel)]="picode" style="background: #DCDCDC;"/>
+	     </div>
+
+
+     <label>Assign a description for the PI</label>
+	     <div class="input-group mb-3" style="left: 200px;">
+	      <div class="input-group-prepend">
+	        <label class="input-group-text" for="pidescription">PI Description</label>
+	      </div>
+	      <input type="text" class="form-control " id="pidescription" name="pidescription" placeholder="PI Description" required="" [(ngModel)]="pidescription" style="background: #DCDCDC;"/>
+	    </div>
+
+    <div class="padre">
+        <button type="button" class="btn light-blue boton " (click)="createNewPi()">Create</button>
+        <button type="button" class="btn light-blue boton " (click)="cancelAdd()">Cancel</button>
+    </div>
+  </form>
+
+
+  </div>
 </div>
 

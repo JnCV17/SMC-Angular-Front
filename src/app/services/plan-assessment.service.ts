@@ -165,6 +165,16 @@
 		return this.http.get('http://127.0.0.1:8000/api/assessmentSourcesByPi/'+idpi).map((response:Response)=> response.json());
 	}
 
+	createPiPlan(codePI, description, planId):any{
+		console.log('http://127.0.0.1:8000/api/createPiPlan/'+codePI+'/'+description+'/'+planId);
+		let obser =  this.http.get('http://127.0.0.1:8000/api/createPiPlan/'+codePI+'/'+description+'/'+planId).map((response:Response)=> response.json());
+		let retorno:any;
+		obser.subscribe((data)=> {
+			retorno = data;
+				return retorno;
+		});
+	}
+
 
 
 }

@@ -36,3 +36,7 @@ input, button, select, textarea {
 td.text-right {
     text-align: left;
 }
+
+.padre{
+    text-align: center;
+}

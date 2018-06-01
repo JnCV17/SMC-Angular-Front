@@ -7,6 +7,7 @@ import { PlanAssessmentService } from '../../services/plan-assessment.service';
 import { Observable } from 'rxjs/Rx';
 import { PlanAssessment } from '../../models/planAssessment';
 import { Router } from "@angular/router";
+import { NgForm } from "@angular/forms";
 
 
 @Component({
@@ -22,6 +23,11 @@ export class PlanInfoComponent implements OnInit {
 	description:string;
 	evaluation:string;
 
+	newChecked: boolean;
+
+	picode: string;
+	pidescription: string;
+
 	planObservable:Observable<PlanAssessment>;
 	plan:PlanAssessment;
 
@@ -33,10 +39,13 @@ export class PlanInfoComponent implements OnInit {
 
 	constructor(private planAssessmentService:PlanAssessmentService,private router: Router) { 
 
-
+		this.picode="";
+		this.pidescription="";
 	}
 
 	ngOnInit() {
+
+		this.newChecked = false;
 
 		let piObservable = this.planAssessmentService.getPiByPlanId(this.idPlan);
 
@@ -69,8 +78,41 @@ export class PlanInfoComponent implements OnInit {
 		editRow(pi:Pi){
 
     		//	window.open('/smc/edit/'+this.idPlan+'/'+pi.Idpi); 
- this.router.navigate(['/smc/edit/'+this.idPlan+'/'+pi.Idpi]);
+ 			this.router.navigate(['/smc/edit/'+this.idPlan+'/'+pi.Idpi]);
 		}
+
+		cancelAdd(){
+    		this.newChecked = false;
+
+    		this.picode = "";
+    		this.pidescription = "";
+  		}
+
+  		createNewPi(){
+  		this.newChecked = false;
+
+  		if(this.picode == null || this.picode.trim().length === 0){
+    		alert("Please set a code for the PI");
+    	}else{
+    		if(this.pidescription == null || this.pidescription.trim().length === 0){
+    			alert("Please set a description for the PI");
+    		}else{
+    			this.planAssessmentService.createPiPlan(this.picode, this.pidescription,this.idPlan);
+    		}
+    	}
+    	this.picode = "";
+    	this.pidescription = "";
+    	window.location.reload();
+  		}
+
+  		showAdd(){
+	    if(this.newChecked != true){
+	      this.newChecked = true;
+	    }else{
+	      this.newChecked = false;
+	    }
+    
+  }
 
 		
 	}
