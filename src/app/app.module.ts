@@ -17,7 +17,6 @@ import { MethodService } from './services/method.service';
 import { Http, HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ChartsModule } from 'ng2-charts';
 
 import { AdminComponent } from './admin/admin.component';
@@ -38,7 +37,6 @@ import { MyDatePickerModule } from 'mydatepicker';
     FormsModule,
     HttpModule,
     HttpClientModule,
-    Ng2SmartTableModule,
     ChartsModule,
     MyDatePickerModule,
   ],
