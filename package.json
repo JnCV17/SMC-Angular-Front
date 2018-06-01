@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "heroku-prebuild": "npm install -g http-server",
-    "heroku-postbuild": "ng build",
+    "heroku-postbuild": "ng build --prod --aot=false --build-optimizer=false",
     "start": "http-server dist/",
     "e2e": "ng e2e"
   },
