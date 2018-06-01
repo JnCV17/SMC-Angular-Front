@@ -8,7 +8,8 @@ import { SMCComponent } from './../smc/smc.component';
   imports: [
     RouterModule.forRoot([
       { path: '', redirectTo: 'auth/signin', pathMatch: 'full' },
-      { path: 'smc', component: SMCComponent }
+      { path: 'smc', component: SMCComponent },
+      { path:'**',pathMatch:'full',redirectTo:'home'}
     ])
   ],
   declarations: [],
