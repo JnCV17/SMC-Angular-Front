@@ -17,25 +17,25 @@ export class UserService {
 
 	getUser(idUser):Observable<User>{
 		console.log("algoooooooooooooooooooo");
-		console.log('http://127.0.0.1:8000/api/userById/'+idUser);
-		return this.http.get('http://127.0.0.1:8000/api/userById/'+idUser).map((response:Response)=> response.json());
+		console.log('https://smc-icesi.herokuapp.com/api/userById/'+idUser);
+		return this.http.get('https://smc-icesi.herokuapp.com/api/userById/'+idUser).map((response:Response)=> response.json());
 	}
 
 	getRolsByUser(idUser):Observable<Rol[]>{
-		return this.http.get('http://127.0.0.1:8000/api/rolsByUserId/'+idUser).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/rolsByUserId/'+idUser).map((response:Response)=> response.json());
 	}
 
 	getRol(idRol):Observable<RolCip>{
-		return this.http.get('http://127.0.0.1:8000/api/getRol/'+idRol).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/getRol/'+idRol).map((response:Response)=> response.json());
 	}
 
 	getAllUsers():Observable<UserRols[]>{
 
-		return this.http.get('http://127.0.0.1:8000/api/getAllUserCip').map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/getAllUserCip').map((response:Response)=> response.json());
 	}
 
 	getAllProfessors():Observable<UserRols[]>{
 
-		return this.http.get('http://127.0.0.1:8000/api/getAllProfessors').map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/getAllProfessors').map((response:Response)=> response.json());
 	}
 }

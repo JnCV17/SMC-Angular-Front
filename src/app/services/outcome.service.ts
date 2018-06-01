@@ -12,26 +12,26 @@ export class OutcomeService {
 	}
 
 	outcomesByUserAndProgram(user,program):Observable<Outcome[]>{
-		return this.http.get('http://127.0.0.1:8000/api/outcomesByUserAndProgram/'+user+'/'+program).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/outcomesByUserAndProgram/'+user+'/'+program).map((response:Response)=> response.json());
 	}
 
 	outcomeCycleAsByOutcomeCycle(idOutcome,idCycle):Observable<OutcomeCycleAs>{
-		return this.http.get('http://127.0.0.1:8000/api/outcomeCycleAsByOutcomeCycle/'+idOutcome+'/'+idCycle).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/outcomeCycleAsByOutcomeCycle/'+idOutcome+'/'+idCycle).map((response:Response)=> response.json());
 	}
 
     outcomeByProgram(idProgram):Observable<Outcome[]>{
-		return this.http.get('http://127.0.0.1:8000/api/outcomesByProgram/'+idProgram).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/outcomesByProgram/'+idProgram).map((response:Response)=> response.json());
 	}
 	changeStateOutcomeToCreated(idOutcome):Observable<Outcome>{
-		return this.http.get('http://127.0.0.1:8000/api/changeStateOutcomeToCreated/'+idOutcome).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/changeStateOutcomeToCreated/'+idOutcome).map((response:Response)=> response.json());
 	}
 	getOutcomesActiveByProgram(idProgram):Observable<Outcome[]>{
-		return this.http.get('http://127.0.0.1:8000/api/outcomesByCycleActiveByProgram/'+idProgram).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/outcomesByCycleActiveByProgram/'+idProgram).map((response:Response)=> response.json());
 	}
 
 
 	changeLeaderOutcome(idOutcome,idUser):Observable<Outcome>{
 		console.log("entro asignar");
-		return this.http.get('http://127.0.0.1:8000/api/changeLeaderOutcome/'+idOutcome+'/'+idUser).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/changeLeaderOutcome/'+idOutcome+'/'+idUser).map((response:Response)=> response.json());
 	}
 }

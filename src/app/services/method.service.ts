@@ -11,7 +11,7 @@ export class MethodService {
 	}
 
 	allMethods():Observable<Method[]>{
-		return this.http.get('http://127.0.0.1:8000/api/allMethods').map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/allMethods').map((response:Response)=> response.json());
 	}
 
 }

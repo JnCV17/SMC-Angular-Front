@@ -10,7 +10,7 @@ export class AuthService {
 	}
 
 	signin(username:string, password:string) {
-		return this.http.post('http://127.0.0.1:8000/api/auth/login',
+		return this.http.post('https://smc-icesi.herokuapp.com/api/auth/login',
 			{username: username, password: password},
 			{headers: new Headers({'Accept': 'application/json'})})
 			.map(
@@ -41,7 +41,7 @@ export class AuthService {
 
 	logout(){
 		var tokenData = localStorage.getItem('token');
-		return this.http.post('http://127.0.0.1:8000/api/auth/logout?token='+tokenData,{},
+		return this.http.post('https://smc-icesi.herokuapp.com/api/auth/logout?token='+tokenData,{},
 			{headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})})
 		.map((response:Response)=> {
 			const message = response.json().message;

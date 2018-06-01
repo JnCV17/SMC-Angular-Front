@@ -15,24 +15,24 @@ export class ProgramsService {
 
 
 	getPrograms():Observable<Program[]>{
-		return this.http.get('http://127.0.0.1:8000/api/v1/programs').map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/v1/programs').map((response:Response)=> response.json());
 	}
 
 
 	getSubCycleActive(program):Observable<ParameterSmc>{
-		return this.http.get('http://127.0.0.1:8000/api/parameterCycle/'+program).map((response:Response)=> response.json());
+		return this.http.get('https://smc-icesi.herokuapp.com/api/parameterCycle/'+program).map((response:Response)=> response.json());
 	}
 
 		savePlan(idUserp,idOutcomeCycleAsp):Observable<any>{
 		let myvar; 	
 		console.log("dentro service: "+idUserp);
 		console.log("dentro service: "+idOutcomeCycleAsp);
-		console.log('http://127.0.0.1:8000/api/savePlan/'+idUserp+'/'+idOutcomeCycleAsp);
+		console.log('https://smc-icesi.herokuapp.com/api/savePlan/'+idUserp+'/'+idOutcomeCycleAsp);
 		 
-		myvar = this.http.get('http://127.0.0.1:8000/api/savePlan/2813/74').map((response:Response)=> response.json());
+		myvar = this.http.get('https://smc-icesi.herokuapp.com/api/savePlan/2813/74').map((response:Response)=> response.json());
 		console.dir(myvar);
 		return myvar; 
-		//return 'http://127.0.0.1:8000/api/savePlan/'+idUserp+'/'+idOutcomeCycleAsp;
+		//return 'https://smc-icesi.herokuapp.com/api/savePlan/'+idUserp+'/'+idOutcomeCycleAsp;
 	}
 }
 
